@@ -7,10 +7,6 @@ public class Controller implements KeyListener {
 	Model model;
 	View view;
 	Level lvl;
-	int[][] level;
-	int[][] markedPoints;
-	int i;
-	int j;
 	
 	public Controller(Model model, View view) {
 		this.view  = view;
