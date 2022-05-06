@@ -2,17 +2,9 @@ package skb;
 
 import javax.swing.JFrame;
 
-public class Main extends JFrame { /* Main ska vara game1, game2 i mobil etc. */
+public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 	/* T.ex. main ska inte extend:a frame om spelet endast sker i  konsolen*/
-	//View panel;
-	
-   public Main() {
-        super("Sokoban");
-        //panel = p;
-        //setContentPane(view);
-        
-        //addKeyListener(new Controller(panel));
-   }
+	/* ^ Eftersom Main extend:ar JFrame, ända till 2022-05-06 16:44 ^ */
 
    public static void main(String args[]) {
 	   String[] adress = new String[] { 
@@ -46,9 +38,6 @@ public class Main extends JFrame { /* Main ska vara game1, game2 i mobil etc. */
 	   lvl1[playerI][playerJ] = 4;
 	   Level level1 = new Level(lvl1, lvl1MarkedSpots);
 	   
-	   // 21
-	   // 13
-	   // i = 3, j = 5
 	   int[][] lvl2 = new int[][] {
 	    new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	    new int[] {0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -78,7 +67,7 @@ public class Main extends JFrame { /* Main ska vara game1, game2 i mobil etc. */
 	   View view   = new View(model);
 	   Controller controller  = new Controller(model, view); 
 	   
-        Main frame = new Main();
+        JFrame frame = new JFrame("Sokoban");
 	   //Main frame = new Main(new View(adress, playerI, playerJ, level2));
         
         frame.setContentPane(view);
