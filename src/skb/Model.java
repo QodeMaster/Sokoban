@@ -1,6 +1,7 @@
 package skb;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -34,14 +35,12 @@ public class Model {
 	BufferedImage getImg(int index) { return imgs[index]; }
 	void setImg (int index, BufferedImage imageTile) { imgs[index] = imageTile; }
 	
-	void update(View view) {
+	/*void update(View view) {
 		System.out.println(lvl.totPoints - lvl.coveredPoints);
-		if(view instanceof JPanel) {
-			view.repaint();
-		}
-	}
+		view.repaint();
+	}*/
 	
-	void move(int di, int dj, View view) {
+	void move(int di, int dj, ArrayList<Update> view) {
 		int iCoord = i + di;
 		int jCoord = j + dj;
 		
@@ -50,7 +49,7 @@ public class Model {
     		i += di;
     		j += dj;
     		level[i][j] = 4;
-    		update(view);
+    		for(Update v : view) { v.update(); }
     	} else if((level[iCoord][jCoord] == 2 || level[iCoord][jCoord] == 3) 
     			&& (level[iCoord + di][jCoord + dj] == 0 || level[iCoord + di][jCoord + dj] == 1 )) { // Move Box
     		
@@ -63,7 +62,7 @@ public class Model {
     			level[iCoord + di][jCoord + dj] = 3;
     			lvl.coveredPoints++;
     		} else level[iCoord + di][jCoord + dj] = 2;
-    		update(view);
+    		for(Update v : view) { v.update(); }
     	}
 	}
 }
