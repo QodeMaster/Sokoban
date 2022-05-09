@@ -9,10 +9,10 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class View extends JPanel {
+public class SwingView extends JPanel implements Update{
 	Model model;
 	
-	public View(Model model) {
+	public SwingView(Model model) {
 		// Old constructor View(String[] arg, int i, int j, Level level)
 		this.model = model;
 		initPics();
@@ -47,5 +47,10 @@ public class View extends JPanel {
 			e.printStackTrace(); 
 			return null;
 		}
+	}
+
+	@Override
+	public void update() {
+		this.repaint();
 	}
 }
