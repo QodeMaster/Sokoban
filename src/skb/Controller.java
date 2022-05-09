@@ -11,7 +11,7 @@ public class Controller implements KeyListener {
 	
 	public Controller(Model model) {
 		this.model = model;
-		this.view = new ArrayList();
+		this.view = new ArrayList<>();
 	}
 	
 	

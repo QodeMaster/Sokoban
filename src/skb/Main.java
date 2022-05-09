@@ -1,5 +1,7 @@
 package skb;
 
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 
 public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
@@ -38,8 +40,7 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 	   };
 	   int playerI = 4;
 	   int playerJ = 4;
-	   lvl1[playerI][playerJ] = 4;
-	   Level level1 = new Level(lvl1, lvl1MarkedSpots);
+	   Level level1 = new Level(lvl1, lvl1MarkedSpots, playerI, playerJ);
 	   
 	   int[][] lvl2 = new int[][] {
 		   	new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -63,14 +64,17 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 		   new int[] { 2, 8 },
 		   new int[] { 2, 9 }
 	   };
-	   lvl2[playerI][playerJ] = 4;
-	   Level level2 = new Level(lvl2, lvl2MarkedSpots);
+	   Level level2 = new Level(lvl2, lvl2MarkedSpots, playerI, playerJ);
 	   
-	   Model model = new Model(adress, playerI, playerJ, level1);
-	   // model.setLevel(adress, playerI, playerJ, level1);
-	   // Alt: Level[Level1, Level2];
-	   SwingView swingView   = new SwingView(model);
+	   ArrayList<Level> lvl_LIST = new ArrayList<Level>();
+	   lvl_LIST.add(level1);
+	   lvl_LIST.add(level2);
+	   
+	   Model model = new Model(adress, lvl_LIST);
+	   
+	   SwingView swingView     = new SwingView(model);
 	   ConsoleView consoleView = new ConsoleView(model);
+	   
 	   Controller controller   = new Controller(model);
 	   
 	   controller.addView(swingView);

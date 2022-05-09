@@ -8,24 +8,28 @@ import javax.swing.JPanel;
 public class Model {
 	String[] pics; /* Detta ska vara i model */
 	BufferedImage[] imgs = new BufferedImage[6];
+	ArrayList<Level> lvl_LIST;
 	Level lvl;
 	int[][] level;
 	int[][] markedPoints;
 	int i;
 	int j;
+	int levelCounter = -1;
 	
 	
-	public Model(String[] arg, int i, int j, Level level) {
+	public Model(String[] arg, ArrayList<Level> lvl_LIST) {
+		this.lvl_LIST = lvl_LIST;
 		pics = arg;
-		this.i = i;
-		this.j = j;
-		lvl = level;
-		initAttributes();
+		newLevel();
 	}
 	
-	void initAttributes() {
+	void newLevel() { // Move to next level
+		levelCounter++;
+		lvl   = lvl_LIST.get(levelCounter);
 		level = lvl.level;
 		markedPoints = lvl.markedPoints;
+		i = lvl.i;
+		j = lvl.j;
 	}
 	
 	Level getLevel() { return lvl; }
@@ -62,6 +66,7 @@ public class Model {
     			level[iCoord + di][jCoord + dj] = 3;
     			lvl.coveredPoints++;
     		} else level[iCoord + di][jCoord + dj] = 2;
+    		if(lvl.totPoints - lvl.coveredPoints == 0 && levelCounter + 1 != lvl_LIST.size()) { newLevel(); }
     		for(Update v : view) { v.update(); }
     	}
 	}

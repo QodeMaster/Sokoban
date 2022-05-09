@@ -5,9 +5,14 @@ public class Level {
 	int[][] level;
 	int coveredPoints;
 	int totPoints;
+	int i;
+	int j;
 	
-	public Level(int[][] level, int[][] map) {
+	public Level(int[][] level, int[][] map, int startPosI, int startPosJ) {
 		this.level		  = level;
+		i = startPosI;
+		j = startPosJ;
+		this.level[i][j] = 4;
 		this.markedPoints = new int[level.length][level[0].length];
 		coveredPoints     = 0;
 		totPoints         = map.length;

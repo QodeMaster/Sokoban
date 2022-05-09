@@ -18,6 +18,7 @@ public class ConsoleView implements Update {
 			}
 			System.out.println(row + lvl[i][lvl[i].length - 2] + " ]");
 		}
+		System.out.print(", " + (model.getLevel().totPoints - model.getLevel().coveredPoints) + " more to go.");
 		System.out.println();
 	}
 
