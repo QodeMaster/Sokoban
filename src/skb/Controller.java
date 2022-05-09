@@ -2,15 +2,16 @@ package skb;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Controller implements KeyListener {
 	Model model;
-	View view;
+	ArrayList<Update> view;
 	Level lvl;
 	
-	public Controller(Model model, View view) {
-		this.view  = view;
+	public Controller(Model model) {
 		this.model = model;
+		this.view = new ArrayList();
 	}
 	
 	
@@ -44,6 +45,12 @@ public class Controller implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void addView(Update view) {
+		this.view.add(view);
 		
 	}
 	
