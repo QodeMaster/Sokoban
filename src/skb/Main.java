@@ -76,7 +76,6 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 	   ConsoleView consoleView = new ConsoleView(model);
 	   
 	   Controller controller   = new Controller(model);
-	   
 	   controller.addView(swingView);
 	   controller.addView(consoleView);
 	   
