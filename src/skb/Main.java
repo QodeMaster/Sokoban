@@ -75,14 +75,20 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 	   SwingView swingView     = new SwingView(model);
 	   ConsoleView consoleView = new ConsoleView(model);
 	   
-	   Controller controller   = new Controller(model);
+
+       Controller controller   = new Controller(model);
 	   controller.addView(swingView);
 	   controller.addView(consoleView);
 	   
 	   JFrame frame = new JFrame("Sokoban");
+	   
+	   InputStrategy keyBoard = new KeyBoardInput(frame);
+	   keyBoard.setController(controller);
         
         frame.setContentPane(swingView);
-        frame.addKeyListener(controller);
+        //frame.addKeyListener(controller);
+        
+        
         
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
