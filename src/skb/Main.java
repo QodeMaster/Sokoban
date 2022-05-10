@@ -10,12 +10,12 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 
    public static void main(String args[]) {
 	   String[] adress = new String[] { 
-        		"C:\\Users\\davazi20\\eclipse-workspace\\skban\\blank.png",
-        		"C:\\Users\\davazi20\\eclipse-workspace\\skban\\blankmarked.png", 
-        		"C:\\Users\\davazi20\\eclipse-workspace\\skban\\crate.png",
-        		"C:\\Users\\davazi20\\eclipse-workspace\\skban\\crateMarked.png",
-        		"C:\\Users\\davazi20\\eclipse-workspace\\skban\\player.png",
-        		"C:\\Users\\davazi20\\eclipse-workspace\\skban\\wall.png"
+        		"blank.png",
+        		"blankmarked.png", 
+        		"crate.png",
+        		"crateMarked.png",
+        		"player.png",
+        		"wall.png"
         };
 	   int[][] lvl1 = new int[][] {
 		   new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
