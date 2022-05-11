@@ -6,11 +6,11 @@ public class ConsoleView implements Update {
 	
 	public ConsoleView(Model model) {
 		this.model = model;
-		this.lvl = model.lvl.level;
 	}
 	
 	@Override
 	public void update() {
+		lvl = model.lvl.level;
 		for(int i = 0; i < lvl.length; i++) {
 			String row = "[ ";
 			for(int j = 0; j < lvl[0].length - 1; j++) {
