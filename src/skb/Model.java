@@ -70,4 +70,14 @@ public class Model {
     		for(Update v : view) { v.update(); }
     	}
 	}
+	
+	/*
+	void save() {
+	
+	}
+	
+	void load() {
+	
+	}
+	 * */
 }
