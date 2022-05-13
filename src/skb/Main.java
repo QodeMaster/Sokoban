@@ -70,9 +70,9 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 	   lvl_LIST.add(level1);
 	   lvl_LIST.add(level2);
 	   
-	   Model model = new Model(adress, lvl_LIST);
+	   Model model = new Model(lvl_LIST);
 	   
-	   SwingView swingView     = new SwingView(model);
+	   SwingView swingView     = new SwingView(model, adress);
 	   ConsoleView consoleView = new ConsoleView(model);
 	   
 
@@ -92,7 +92,7 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
         
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(model.level[0].length * 32 + 32, model.level.length * 32 + 64);
+        frame.setSize(model.getLevelMapRowLength() * 32 + 32, model.getLevelMapLength() * 32 + 64);
         frame.setVisible(true); 
    }
 }
