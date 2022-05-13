@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 public class KeyBoardInput implements KeyListener, InputStrategy {
-	Controller c;
+	private Controller c;
 	
 	public KeyBoardInput(JFrame frame) {
 		frame.addKeyListener(this);
