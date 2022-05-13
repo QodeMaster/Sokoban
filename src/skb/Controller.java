@@ -5,9 +5,9 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class Controller {
-	Model model;
-	ArrayList<Update> view;
-	Level lvl;
+	private Model model;
+	private ArrayList<Update> view;
+	private Level lvl;
 	
 	public Controller(Model model) {
 		this.model = model;
