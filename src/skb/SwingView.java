@@ -10,31 +10,34 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class SwingView extends JPanel implements Update{
-	Model model;
+	private Model model;
+	private String[] pics;
+	private BufferedImage[] imgs = new BufferedImage[6];
 	
-	public SwingView(Model model) {
+	public SwingView(Model model, String[] arg) {
 		// Old constructor View(String[] arg, int i, int j, Level level)
 		this.model = model;
+		pics = arg;
 		initPics();
 	}
 	
 	public void paintComponent(Graphics g) {
         //g.fillRect(20, 20, 150, 150); // Draw on g here e.g.
     	super.paintComponent(g);
-    	drawBoard(g, model.getLevel());
+    	drawBoard(g);
     }
 	
-	void drawBoard(Graphics g, Level level) {
-		for(int k = 0; k < level.level.length; k++) {
-			for(int l = 0; l < level.level[0].length; l++) {
-				g.drawImage(model.getImg(level.level[k][l]), 32*l, 32*k, null);
+	void drawBoard(Graphics g) {
+		for(int k = 0; k < model.getLevelMapLength(); k++) {
+			for(int l = 0; l < model.getLevelMapRowLength(); l++) {
+				g.drawImage(imgs[model.getBlockFromCoord(k, l)], 32*l, 32*k, null);
 			}
 		}
 	}
 	
 	void initPics() {
-		for(int k = 0; k < model.pics.length; k++) {
-			model.setImg(k, recieveImg(model.getUnprocessed(k)));
+		for(int k = 0; k < pics.length; k++) {
+			imgs[k] = recieveImg(pics[k]);
 		}
 	}
 	
