@@ -86,9 +86,6 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 	   keyBoard.setController(controller);
         
         frame.setContentPane(swingView);
-        //frame.addKeyListener(controller);
-        
-        
         
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
