@@ -1,8 +1,7 @@
 package skb;
 
 public class ConsoleView implements Update {
-	Model model;
-	int[][] lvl;
+	private Model model;
 	
 	public ConsoleView(Model model) {
 		this.model = model;
@@ -10,15 +9,14 @@ public class ConsoleView implements Update {
 	
 	@Override
 	public void update() {
-		lvl = model.lvl.level;
-		for(int i = 0; i < lvl.length; i++) {
+		for(int i = 0; i < model.getLevelMapLength(); i++) {
 			String row = "[ ";
-			for(int j = 0; j < lvl[0].length - 1; j++) {
-				row += lvl[i][j] + ", ";
+			for(int j = 0; j < model.getLevelMapRowLength()- 1; j++) {
+				row += model.getBlockFromCoord(i, j) + ", ";
 			}
-			System.out.println(row + lvl[i][lvl[i].length - 2] + " ]");
+			System.out.println(row + model.getBlockFromCoord(i, model.getLevelMapRowLength() - 1) + " ]");
 		}
-		System.out.print(", " + (model.getLevel().totPoints - model.getLevel().coveredPoints) + " more to go.");
+		System.out.print(", " + (model.getTotPoints() - model.getCoveredPoints()) + " more to go.");
 		System.out.println();
 	}
 
