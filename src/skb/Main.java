@@ -53,7 +53,8 @@ public class Main { /* Note to Self: Main ska vara game1, game2 i mobil etc. */
 		int[][] lvl2MarkedSpots = new int[][] { 
 			new int[] { lvl2.length - 3, 7 }, 
 			new int[] { 4, lvl2[0].length - 3 },
-			new int[] { 2, 8 }, new int[] { 2, 9 } };
+			new int[] { 2, 8 }, 
+			new int[] { 2, 9 } };
 		Level level2 = new Level(lvl2, lvl2MarkedSpots, playerI, playerJ);
 
 		ArrayList<Level> lvl_LIST = new ArrayList<Level>();
