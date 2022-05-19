@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Controller {
 	private Model model;
 	private ArrayList<Update> view;
-	private Level lvl;
 	
 	public Controller(Model model) {
 		this.model = model;
